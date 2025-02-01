@@ -14,6 +14,7 @@ export type TestFixtures = {
         await basePage.login('genieouzog+mossallv2@gmail.com', 'password');
         await use(basePage);
       //  await basePage.logout();
+      //test
     },
     
     collaboratorPage: async ({ basePage }, use) => {
