@@ -14,6 +14,13 @@ const birthday = birthdayDate.toISOString().split('T')[0];
 test.describe('TestSuite Collaborateurs', () => {
 test('Ajout collaborateur', async ({ collaboratorPage, page}) => {
     
-    await collaboratorPage.addCollaborator(prenom, nom, email, '77' +telephone.toString(), birthday, identifiant.toString(), '2000000');
+    await collaboratorPage.addCollaborator(prenom, nom, email, '+22177' +telephone.toString(), birthday, identifiant.toString(), '2000000');
 });
 });
+
+test.describe('TestSuite Demande', () => {
+    test('Visualiser les différets types demandes', async ({ visibiliteTypesDemandesPage, page}) => {
+        
+        await visibiliteTypesDemandesPage.VisibiliteTypesDemandes();
+    });
+    });

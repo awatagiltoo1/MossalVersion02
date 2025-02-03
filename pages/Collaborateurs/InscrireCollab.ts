@@ -31,7 +31,8 @@ export class CollaboratorPage extends BasePage {
         this.collaboratorMatricule = page.locator('#matricule');
         this.collaboratorSalary = page.locator('#salaire');
         this.collaboratorPaymentMethod = page.getByRole('combobox');
-        this.saveButton = page.getByRole('button', { name: 'Enregistrer' });
+       // this.saveButton = page.getByRole('button', { name: 'Enregistrer' });
+       this.saveButton = page.getByText('Enregistrer');
     }
 
     async addCollaborator(firstname: string, lastname: string, email: string, phone: string,  birthdate: string, matricule: string, salary: string) {
