@@ -9,6 +9,7 @@ const identifiant = faker.number.int({ min: 1000, max: 9999 })
 const telephone = faker.number.int({min: 1000000, max:9999999})
 const birthdayDate = faker.date.birthdate({ min: 18, max: 65, mode: 'age' });
 const birthday = birthdayDate.toISOString().split('T')[0];
+const MontantMax = faker.number.int({ min: 10, max: 99 })
 
 
 test.describe('TestSuite Collaborateurs', () => {
@@ -31,4 +32,25 @@ test.describe('TestSuite Demande', () => {
             
             await pg_ajoutCSPPage.PG_AjoutCSP(CSP);
         });
+
+        test('Modifier une categorie socio_prifessionnelle', async ({ modificationCSPPage, page}) => {
+            
+            await modificationCSPPage.ModificationCSP(CSP);
+        });
+
+        test('Supprimer une categorie socio_prifessionnelle', async ({ suppressionCSPPage, page}) => {
+            
+            await suppressionCSPPage.SuppressionCSP();
+        });
+
+        test('Modifier le pourcentage Maximum de demande', async ({ modidifierPourcentageMontageMaxPage, page}) => {
+            
+            await modidifierPourcentageMontageMaxPage.ModifierPourcentageMontageMax(MontantMax.toString());
+        });
+
+       /* test('Modifier la date limite de demande', async ({ modificationDateLimitePage, page}) => {            
+            await modificationDateLimitePage.ModificationDateLimite();  
+
+        });*/
+
         });

@@ -2,32 +2,33 @@ import type { Page, Locator } from '@playwright/test';
 import { BasePage } from '../Collaborateurs/BasePage';
 import {test, expect} from '@playwright/test';
 
-export class ModificationCSPPage extends BasePage {
+export class ModifierPourcentageMontageMaxPage extends BasePage {
     readonly page: Page;
     readonly MenuOrganisation: Locator;
     readonly ParamGenerauxVisible: Locator;
-    readonly ModifierCSPBtn: Locator;
-    readonly NomCSPBtn: Locator;      
-    readonly ValiderModifBnt: Locator;
+    readonly ModifierPourcentMax: Locator;
+    readonly MAJBtn: Locator;
+    readonly TextConfirmation: Locator
+
 
     constructor(page: Page) {   
         super(page);
         this.page = page;
         this.MenuOrganisation = page.getByText('Organisation');
         this.ParamGenerauxVisible = page.getByText('Paramètres généraux');
-        this.ModifierCSPBtn = page.getByText('✏️').first();
-       this.NomCSPBtn = page.getByRole('listitem').filter({ hasText: '✔️❌' }).getByRole('textbox')
-     this.ValiderModifBnt = page.getByText('✔️');
-       
-             
+        this.ModifierPourcentMax = page.locator('#percentage-input');
+        this.MAJBtn = page.getByText(' Mettre à jour ');
+        this.TextConfirmation = page.getByText('PLAFOND MODIFIE');
+      
+                   
     }
 
-    async ModificationCSP(nomCSP: string) {
+    async ModifierPourcentageMontageMax(MontantMax: string) {
         await this.MenuOrganisation.click();
        await expect(this.ParamGenerauxVisible).toBeVisible();
-      await this.ModifierCSPBtn.click(); 
-      await this.NomCSPBtn.fill(nomCSP);
-     await this.ValiderModifBnt.click();
+    await this.ModifierPourcentMax.fill(MontantMax);
+     await this.MAJBtn.click();
+     await expect(this.TextConfirmation).toBeVisible();
            
    
        
