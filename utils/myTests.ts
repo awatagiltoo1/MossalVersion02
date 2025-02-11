@@ -13,6 +13,8 @@ import { SuspendreCollabPage } from '../pages/Collaborateurs/SuspendreCollab';
 import { DetailsCollabPage } from '../pages/Collaborateurs/DetailsCollab';
 import { ImporterTelechargerCollabPage } from '../pages/Collaborateurs/ImportertelechargerCollab';
 import { RechercheCollabPage } from '../pages/Collaborateurs/RechercherCollab';
+import { VerificationColonneActivitesPage } from '../pages/Activite/VerifierActivite';
+import { RechercheSurTabActivitePage } from '../pages/Activite/RechercherActivite';
 
 export type TestFixtures = {
     basePage: BasePage;
@@ -28,6 +30,8 @@ export type TestFixtures = {
     detailsCollabPage : DetailsCollabPage
     importerTelechargerCollabPage : ImporterTelechargerCollabPage
     rechercherCollabPage : RechercheCollabPage
+    verificationColonneActivitesPage : VerificationColonneActivitesPage
+    rechercheSurTabActivitePage : RechercheSurTabActivitePage
     
   };
   const Datelimite = faker.number.int({ min: 1, max: 28 })
@@ -101,6 +105,16 @@ importerTelechargerCollabPage: async ({ basePage }, use) => {
 rechercherCollabPage: async ({ basePage }, use) => {
   const rechercherCollabPage = new RechercheCollabPage(basePage.page);
   await use(rechercherCollabPage);
+},
+
+verificationColonneActivitesPage: async ({ basePage }, use) => {
+  const verificationColonneActivitesPage = new VerificationColonneActivitesPage(basePage.page);
+  await use(verificationColonneActivitesPage);
+},
+
+rechercheSurTabActivitePage: async ({ basePage }, use) => {
+  const rechercheSurTabActivitePage = new RechercheSurTabActivitePage(basePage.page);
+  await use(rechercheSurTabActivitePage);
 }
 
   });

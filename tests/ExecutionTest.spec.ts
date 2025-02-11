@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import {test, expect } from '../utils/myTests';
+import { VerificationColonneActivitesPage } from '../pages/Activite/VerifierActivite';
 
 const email = faker.internet.email();
 const prenom = faker.person.firstName();
@@ -82,5 +83,17 @@ test.describe('TestSuite Demande', () => {
             await modificationDateLimitePage.ModificationDateLimite();  
 
         });*/
+});
 
-        });
+test.describe('TestSuite Activité', () => {
+    test('Visualiser les paramètres de la page Activité', async ({ verificationColonneActivitesPage, page}) => {
+        
+        await verificationColonneActivitesPage.VerificationColonneActivites();
+    });
+
+    test('Rechercher sur la table Activité', async ({ rechercheSurTabActivitePage, page}) => {
+        
+        await rechercheSurTabActivitePage.RechercheSurTabActivite('04/02/2025', '08:25');
+    });
+
+    });
