@@ -8,6 +8,11 @@ import {ModificationCSPPage} from '../pages/Organisations/ModificationCSP';
 import {SuppressionCSPPage} from '../pages/Organisations/SuppressionCSP'; 
 import {ModifierPourcentageMontageMaxPage} from '../pages/Organisations/ModifierPourcentageMontageMax';
 import {ModificationDateLimitePage} from '../pages/Organisations/ModificationDateLimite';
+import { EditerCollabPage } from '../pages/Collaborateurs/EditerCollab';
+import { SuspendreCollabPage } from '../pages/Collaborateurs/SuspendreCollab';
+import { DetailsCollabPage } from '../pages/Collaborateurs/DetailsCollab';
+import { ImporterTelechargerCollabPage } from '../pages/Collaborateurs/ImportertelechargerCollab';
+import { RechercheCollabPage } from '../pages/Collaborateurs/RechercherCollab';
 
 export type TestFixtures = {
     basePage: BasePage;
@@ -18,6 +23,11 @@ export type TestFixtures = {
     suppressionCSPPage : SuppressionCSPPage
     modidifierPourcentageMontageMaxPage : ModifierPourcentageMontageMaxPage
     modificationDateLimitePage : ModificationDateLimitePage
+    editerCollabPage : EditerCollabPage
+    suspendreCollabPage : SuspendreCollabPage
+    detailsCollabPage : DetailsCollabPage
+    importerTelechargerCollabPage : ImporterTelechargerCollabPage
+    rechercherCollabPage : RechercheCollabPage
     
   };
   const Datelimite = faker.number.int({ min: 1, max: 28 })
@@ -66,6 +76,31 @@ modidifierPourcentageMontageMaxPage: async ({ basePage }, use) => {
 modificationDateLimitePage: async ({ basePage }, use) => { 
   const modificationDateLimitePage = new ModificationDateLimitePage(basePage.page,Datelimite.toString());
   await use(modificationDateLimitePage);
+},
+
+editerCollabPage: async ({ basePage }, use) => { 
+  const editerCollabPage = new EditerCollabPage(basePage.page);
+  await use(editerCollabPage);
+}
+,
+suspendreCollabPage: async ({ basePage }, use) => {
+  const suspendreCollabPage = new SuspendreCollabPage(basePage.page);
+  await use(suspendreCollabPage);
+}
+,
+detailsCollabPage: async ({ basePage }, use) => {
+  const detailsCollabPage = new DetailsCollabPage(basePage.page);
+  await use(detailsCollabPage);
+},
+
+importerTelechargerCollabPage: async ({ basePage }, use) => {
+  const importerTelechargerCollabPage = new ImporterTelechargerCollabPage(basePage.page);
+  await use(importerTelechargerCollabPage);
+},
+
+rechercherCollabPage: async ({ basePage }, use) => {
+  const rechercherCollabPage = new RechercheCollabPage(basePage.page);
+  await use(rechercherCollabPage);
 }
 
   });

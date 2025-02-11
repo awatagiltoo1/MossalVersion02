@@ -12,13 +12,43 @@ const birthday = birthdayDate.toISOString().split('T')[0];
 const MontantMax = faker.number.int({ min: 10, max: 99 })
 
 
+
 test.describe('TestSuite Collaborateurs', () => {
 test('Ajout collaborateur', async ({ collaboratorPage, page}) => {
     
     await collaboratorPage.addCollaborator(prenom, nom, email, '+22177' +telephone.toString(), birthday, identifiant.toString(), '2000000');
 });
+
+test('Modifier collaborateur', async ({ editerCollabPage, page}) => {   
+    
+    await editerCollabPage.EditerCollaborateur(prenom, nom, birthday, '2000000');
 });
 
+test('Suspendre collaborateur', async ({ suspendreCollabPage, page}) => {   
+    
+    await suspendreCollabPage.SuspendreCollaborateur();
+
+});
+
+test('details collaborateur', async ({ detailsCollabPage, page}) => {   
+    
+    await detailsCollabPage.DetailsCollab();
+
+});
+
+test('Importer ou Telecharger collaborateurs', async ({ importerTelechargerCollabPage, page}) => {   
+    
+    await importerTelechargerCollabPage.ImportGeneralFichier();
+
+});
+
+test('Rechercher collaborateur', async ({ rechercherCollabPage, page}) => {   
+    
+    await rechercherCollabPage.RechercherdeCollab('JKJKS9090J');
+
+});
+
+});
 
 test.describe('TestSuite Demande', () => {
     test('Visualiser les différets types demandes', async ({ visibiliteTypesDemandesPage, page}) => {
