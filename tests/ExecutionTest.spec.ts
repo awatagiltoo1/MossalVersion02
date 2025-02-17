@@ -56,6 +56,11 @@ test.describe('TestSuite Demande', () => {
         
         await visibiliteTypesDemandesPage.VisibiliteTypesDemandes();
     });
+
+    test("Valider une demande d'urgence", async ({ validerdemandeUrgencePage, page}) => {
+        
+        await validerdemandeUrgencePage.ValiderDemandeUrgence();
+    });
     });
 
     test.describe('TestSuite Organisation', () => {

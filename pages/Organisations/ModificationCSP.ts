@@ -18,8 +18,7 @@ export class ModificationCSPPage extends BasePage {
         this.ModifierCSPBtn = page.getByText('✏️').first();
        this.NomCSPBtn = page.getByRole('listitem').filter({ hasText: '✔️❌' }).getByRole('textbox')
      this.ValiderModifBnt = page.getByText('✔️');
-       
-             
+                   
     }
 
     async ModificationCSP(nomCSP: string) {

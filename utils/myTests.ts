@@ -15,6 +15,7 @@ import { ImporterTelechargerCollabPage } from '../pages/Collaborateurs/Importert
 import { RechercheCollabPage } from '../pages/Collaborateurs/RechercherCollab';
 import { VerificationColonneActivitesPage } from '../pages/Activite/VerifierActivite';
 import { RechercheSurTabActivitePage } from '../pages/Activite/RechercherActivite';
+import { ValiderDemandeUrgencePage } from '../pages/Demandes/ValiderDemandeUrgence';
 
 export type TestFixtures = {
     basePage: BasePage;
@@ -32,6 +33,7 @@ export type TestFixtures = {
     rechercherCollabPage : RechercheCollabPage
     verificationColonneActivitesPage : VerificationColonneActivitesPage
     rechercheSurTabActivitePage : RechercheSurTabActivitePage
+    validerdemandeUrgencePage : ValiderDemandeUrgencePage
     
   };
   const Datelimite = faker.number.int({ min: 1, max: 28 })
@@ -115,7 +117,12 @@ verificationColonneActivitesPage: async ({ basePage }, use) => {
 rechercheSurTabActivitePage: async ({ basePage }, use) => {
   const rechercheSurTabActivitePage = new RechercheSurTabActivitePage(basePage.page);
   await use(rechercheSurTabActivitePage);
-}
+},
+
+validerdemandeUrgencePage: async ({ basePage }, use) => {
+  const validerdemandeUrgencePage = new ValiderDemandeUrgencePage(basePage.page);
+  await use(validerdemandeUrgencePage);
+},
 
   });
 
