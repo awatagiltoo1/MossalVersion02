@@ -16,6 +16,9 @@ import { RechercheCollabPage } from '../pages/Collaborateurs/RechercherCollab';
 import { VerificationColonneActivitesPage } from '../pages/Activite/VerifierActivite';
 import { RechercheSurTabActivitePage } from '../pages/Activite/RechercherActivite';
 import { ValiderDemandeUrgencePage } from '../pages/Demandes/ValiderDemandeUrgence';
+import { VerificationKpiPage } from '../pages/Dashboard/VerificationKpi';
+import { DiagrammeVueEnsemblePage } from '../pages/Dashboard/DiagrammeVueEnsemble';
+import { FiltrerUserPage } from '../pages/Dashboard/FiltrerUser';
 
 export type TestFixtures = {
     basePage: BasePage;
@@ -34,6 +37,9 @@ export type TestFixtures = {
     verificationColonneActivitesPage : VerificationColonneActivitesPage
     rechercheSurTabActivitePage : RechercheSurTabActivitePage
     validerdemandeUrgencePage : ValiderDemandeUrgencePage
+    verificationKpiPage : VerificationKpiPage
+    diagrammeVueEnsemblePage : DiagrammeVueEnsemblePage
+    filtrerUserPage : FiltrerUserPage
     
   };
   const Datelimite = faker.number.int({ min: 1, max: 28 })
@@ -123,6 +129,21 @@ validerdemandeUrgencePage: async ({ basePage }, use) => {
   const validerdemandeUrgencePage = new ValiderDemandeUrgencePage(basePage.page);
   await use(validerdemandeUrgencePage);
 },
+
+verificationKpiPage: async ({ basePage }, use) => {
+  const verificationKpiPage = new VerificationKpiPage(basePage.page);
+  await use(verificationKpiPage);
+},
+diagrammeVueEnsemblePage: async ({ basePage }, use) => {
+  const diagrammeVueEnsemblePage = new DiagrammeVueEnsemblePage(basePage.page);  
+  await use(diagrammeVueEnsemblePage);  
+},
+
+filtrerUserPage: async ({ basePage }, use) => {
+  const filtrerUserPage = new FiltrerUserPage(basePage.page);  
+  await use(filtrerUserPage);  
+},
+
 
   });
 

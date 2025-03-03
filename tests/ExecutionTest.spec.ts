@@ -102,3 +102,17 @@ test.describe('TestSuite Activité', () => {
     });
 
     });
+
+
+    test.describe('TestSuite Tableau de bord', () => {
+        test('Visualiser les paramètres KPI du tableau de bord', async ({ verificationKpiPage, page}) => {
+            
+            await verificationKpiPage.VerificationKpi();
+        });
+
+    test('Visualiser les paramètres de filtrer sur le tableau de bord', async ({ filtrerUserPage, page}) => {
+            
+            await filtrerUserPage.FiltrerUser();  
+
+             });
+        });
