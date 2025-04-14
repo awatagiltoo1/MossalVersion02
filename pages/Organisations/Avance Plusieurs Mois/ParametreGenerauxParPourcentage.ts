@@ -42,6 +42,8 @@ export class ParametreGenerauxParPourcentagePage extends BasePage {
         await this.ActivationAutomatiqueBtn.click();
         await this.validerPGDAS.click();
         await this.ConfirmerBtn.click();
+
+        // je commit
         
     }
       
