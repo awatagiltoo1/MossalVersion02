@@ -45,7 +45,7 @@ test('Importer ou Telecharger collaborateurs', async ({ importerTelechargerColla
 
 test('Rechercher collaborateur', async ({ rechercherCollabPage, page}) => {   
     
-    await rechercherCollabPage.RechercherdeCollab('jnjkkj6565');
+    await rechercherCollabPage.RechercherdeCollab('Abdoulaye');
 
 });
 

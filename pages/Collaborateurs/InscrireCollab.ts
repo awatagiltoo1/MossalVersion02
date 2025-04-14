@@ -44,7 +44,7 @@ export class CollaboratorPage extends BasePage {
         await this.collaboratorBirthDate.fill(birthdate);
         await this.collaboratorSalary.fill(salary);
         await this.collaboratorEmail.fill(email);
-        await this.collaboratorCSP.selectOption('67bddfb7614c74418a4bf90b');
+        await this.collaboratorCSP.selectOption('67cece18dadb2b4181a0b761');
         await this.collaboratorPhone.fill(phone);                 
       //  await this.collaboratorPaymentMethod.selectOption({ index: 0 });
         await this.saveButton.click();

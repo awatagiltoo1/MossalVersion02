@@ -37,7 +37,7 @@ export class DetailsCollabPage extends BasePage {
      // this.SuspendreBtn = page.locator('tr:nth-child(4) > td:nth-child(5) > .dropdown > #dropdown-action > div:nth-child(3)');  
       this.InfoCollab = page.getByText('Information Collaborateur');     
       this.DemandeAttente = page.getByText('Demande en attente');  
-      this.DemandeCours = page.getByText('Demande en cours');  
+      this.DemandeCours = page.getByText('Avance salariale remboursable mensuellement');  
       this.Matricule = page.getByText('Matricule');  
       this.Email = page.getByText('Email');  
       this.Tel = page.getByText('Téléphone');  
