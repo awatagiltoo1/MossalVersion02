@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import {test, expect } from '../utils/myTests';
-import { VerificationColonneActivitesPage } from '../pages/Activite/VerifierActivite';
+//import { VerificationColonneActivitesPage } from '../pages/Activite/VerifierActivite';
 
 const email = faker.internet.email();
 const prenom = faker.person.firstName();
@@ -11,6 +11,8 @@ const telephone = faker.number.int({min: 1000000, max:9999999})
 const birthdayDate = faker.date.birthdate({ min: 18, max: 65, mode: 'age' });
 const birthday = birthdayDate.toISOString().split('T')[0];
 const MontantMax = faker.number.int({ min: 10, max: 99 })
+const Pourcentage = faker.number.int({ min: 10, max: 60 })
+const DureeRemb = faker.number.int({ min: 1, max: 7 })
 
 
 
@@ -115,4 +117,23 @@ test.describe('TestSuite Activité', () => {
             await filtrerUserPage.FiltrerUser();  
 
              });
+
+
         });
+
+        test.describe('Organisation Avance Plusieurs Mois', () => {
+            test('Activer ou desactiver une DAS', async ({ activerServicePage, page}) => {
+                           
+              await activerServicePage.ActiverService();
+            });
+            test("Parametrer Les PG d'une DAS par pourcentage", async ({ parametreGenerauxParPourcentagePage, page}) => {
+                           
+                await parametreGenerauxParPourcentagePage.ParametreGenerauxParPourcentagePage(Pourcentage.toString(), DureeRemb.toString())
+              });
+
+              test("Parametrer Les PG d'une DAS par montant", async ({ parametreGenerauxParMontantPage, page}) => {
+                           
+                await parametreGenerauxParMontantPage.ParametreGenerauxParMontant('100000', DureeRemb.toString())
+              });
+
+                       });

@@ -19,7 +19,9 @@ import { ValiderDemandeUrgencePage } from '../pages/Demandes/ValiderDemandeUrgen
 import { VerificationKpiPage } from '../pages/Dashboard/VerificationKpi';
 import { DiagrammeVueEnsemblePage } from '../pages/Dashboard/DiagrammeVueEnsemble';
 import { FiltrerUserPage } from '../pages/Dashboard/FiltrerUser';
-
+import { ActiverServicePage } from '../pages/Organisations/Avance Plusieurs Mois/ActiverService';
+import { ParametreGenerauxParPourcentagePage } from '../pages/Organisations/Avance Plusieurs Mois/ParametreGenerauxParPourcentage.ts';
+import { ParametreGenerauxParMontantPage } from '../pages/Organisations/Avance Plusieurs Mois/ParametreGenerauxParMontant.ts';
 export type TestFixtures = {
     basePage: BasePage;
     collaboratorPage: CollaboratorPage;
@@ -40,6 +42,9 @@ export type TestFixtures = {
     verificationKpiPage : VerificationKpiPage
     diagrammeVueEnsemblePage : DiagrammeVueEnsemblePage
     filtrerUserPage : FiltrerUserPage
+    activerServicePage : ActiverServicePage
+    parametreGenerauxParPourcentagePage : ParametreGenerauxParPourcentagePage
+    parametreGenerauxParMontantPage : ParametreGenerauxParMontantPage
     
   };
   const Datelimite = faker.number.int({ min: 1, max: 28 })
@@ -144,7 +149,21 @@ filtrerUserPage: async ({ basePage }, use) => {
   await use(filtrerUserPage);  
 },
 
+activerServicePage: async ({ basePage }, use) => {
+  const activerServicePage = new ActiverServicePage(basePage.page);  
+  await use(activerServicePage);  
+},
 
-  });
+parametreGenerauxParPourcentagePage: async ({ basePage }, use) => {  
+  const parametreGenerauxParPourcentagePage = new ParametreGenerauxParPourcentagePage(basePage.page);  
+  await use(parametreGenerauxParPourcentagePage);  
+},
+
+parametreGenerauxParMontantPage : async ({ basePage }, use) => {  
+  const parametreGenerauxParMontantPage = new ParametreGenerauxParMontantPage(basePage.page);  
+  await use(parametreGenerauxParMontantPage);  
+},
+  
+});
 
   export { expect } from '@playwright/test';
