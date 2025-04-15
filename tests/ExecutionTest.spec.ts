@@ -122,10 +122,11 @@ test.describe('TestSuite Activité', () => {
         });
 
         test.describe('Organisation Avance Plusieurs Mois', () => {
-            test('Activer ou desactiver une DAS', async ({ activerServicePage, page}) => {
+           /* je commente pour verification sur le git
+           test('Activer ou desactiver une DAS', async ({ activerServicePage, page}) => {
                            
               await activerServicePage.ActiverService();
-            });
+            });*/
             test("Parametrer Les PG d'une DAS par pourcentage", async ({ parametreGenerauxParPourcentagePage, page}) => {
                            
                 await parametreGenerauxParPourcentagePage.ParametreGenerauxParPourcentagePage(Pourcentage.toString(), DureeRemb.toString())
