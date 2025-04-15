@@ -22,6 +22,9 @@ import { FiltrerUserPage } from '../pages/Dashboard/FiltrerUser';
 import { ActiverServicePage } from '../pages/Organisations/Avance Plusieurs Mois/ActiverService';
 import { ParametreGenerauxParPourcentagePage } from '../pages/Organisations/Avance Plusieurs Mois/ParametreGenerauxParPourcentage.ts';
 import { ParametreGenerauxParMontantPage } from '../pages/Organisations/Avance Plusieurs Mois/ParametreGenerauxParMontant.ts';
+import { ParametrerCSPParPourcentagePage } from '../pages/Organisations/Avance Plusieurs Mois/ParametrerCSPParPourcentage.ts';
+import { ParametrerCSPParMontanPage } from '../pages/Organisations/Avance Plusieurs Mois/ParametrerCSPParMontant.ts';
+
 export type TestFixtures = {
     basePage: BasePage;
     collaboratorPage: CollaboratorPage;
@@ -45,6 +48,8 @@ export type TestFixtures = {
     activerServicePage : ActiverServicePage
     parametreGenerauxParPourcentagePage : ParametreGenerauxParPourcentagePage
     parametreGenerauxParMontantPage : ParametreGenerauxParMontantPage
+    parametrerCSPParPourcentagePage : ParametrerCSPParPourcentagePage
+    parametrerCSPParMontantPage : ParametrerCSPParMontanPage
     
   };
   const Datelimite = faker.number.int({ min: 1, max: 28 })
@@ -163,7 +168,17 @@ parametreGenerauxParMontantPage : async ({ basePage }, use) => {
   const parametreGenerauxParMontantPage = new ParametreGenerauxParMontantPage(basePage.page);  
   await use(parametreGenerauxParMontantPage);  
 },
-  
+
+parametrerCSPParPourcentagePage : async ({ basePage }, use) => {  
+  const parametrerCSPParPourcentagePage = new ParametrerCSPParPourcentagePage(basePage.page);  
+  await use(parametrerCSPParPourcentagePage);  
+},
+
+parametrerCSPParMontantPage : async ({ basePage }, use) => {  
+  const parametrerCSPParMontantPage = new ParametrerCSPParMontanPage(basePage.page);  
+  await use(parametrerCSPParMontantPage);  
+},  
+
 });
 
   export { expect } from '@playwright/test';

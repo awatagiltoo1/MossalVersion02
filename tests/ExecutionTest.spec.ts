@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker';
 import {test, expect } from '../utils/myTests';
+import { ParametrerCSPParMontanPage } from '../pages/Organisations/Avance Plusieurs Mois/ParametrerCSPParMontant';
 //import { VerificationColonneActivitesPage } from '../pages/Activite/VerifierActivite';
 
 const email = faker.internet.email();
@@ -136,5 +137,17 @@ test.describe('TestSuite Activité', () => {
                            
                 await parametreGenerauxParMontantPage.ParametreGenerauxParMontant('100000', DureeRemb.toString())
               });
+
+              test("Parametrer une CSP d'une DAS par pourcentage", async ({ parametrerCSPParPourcentagePage, page}) => {
+                await parametrerCSPParPourcentagePage.ParametrerCSPParPourcentage('67cef365dadb2b4181a0e55d',Pourcentage.toString(), DureeRemb.toString());
+                
+              });
+
+              test("Parametrer une CSP d'une DAS par montant", async ({ parametrerCSPParMontantPage, page}) => {
+              //  await parametrerCSPParPourcentagePage.ParametrerCSPParPourcentage('67cef365dadb2b4181a0e55d',Pourcentage.toString(), DureeRemb.toString());
+                
+              await parametrerCSPParMontantPage.ParametrerCSPParMontant('67cef365dadb2b4181a0e55d','150000', DureeRemb.toString());
+              });
+
 
                        });
