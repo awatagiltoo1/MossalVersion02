@@ -151,3 +151,31 @@ test.describe('TestSuite Activité', () => {
 
 
                        });
+
+
+                       test.describe('Organisation Avance Salariale', () => {
+                        
+                         test("Parametrer Les PG d'une DAS par montant", async ({ as_parametreGenerauxParMontantPage, page}) => {
+                                        
+                             await as_parametreGenerauxParMontantPage.AS_ParametreGenerauxParMontant('95000'.toString(), DureeRemb.toString())
+                           });
+             
+                           test("Parametrer Les PG d'une DAS par pourcentage", async ({ as_parametreGenerauxParPourcentagePage, page}) => {
+                                        
+                            // await as.ParametreGenerauxParMontant('100000', DureeRemb.toString())
+                            await as_parametreGenerauxParPourcentagePage.AS_ParametreGenerauxParPourcentage(Pourcentage.toString(), DureeRemb.toString())
+                           });
+             
+                          /* test("Parametrer une CSP d'une DAS par pourcentage", async ({ parametrerCSPParPourcentagePage, page}) => {
+                             await parametrerCSPParPourcentagePage.ParametrerCSPParPourcentage('67cef365dadb2b4181a0e55d',Pourcentage.toString(), DureeRemb.toString());
+                             
+                           });
+             
+                           test("Parametrer une CSP d'une DAS par montant", async ({ parametrerCSPParMontantPage, page}) => {
+                           //  await parametrerCSPParPourcentagePage.ParametrerCSPParPourcentage('67cef365dadb2b4181a0e55d',Pourcentage.toString(), DureeRemb.toString());
+                             
+                           await parametrerCSPParMontantPage.ParametrerCSPParMontant('67cef365dadb2b4181a0e55d','150000', DureeRemb.toString());
+                           });*/
+             
+             
+                                    });

@@ -24,7 +24,8 @@ import { ParametreGenerauxParPourcentagePage } from '../pages/Organisations/Avan
 import { ParametreGenerauxParMontantPage } from '../pages/Organisations/Avance Plusieurs Mois/ParametreGenerauxParMontant.ts';
 import { ParametrerCSPParPourcentagePage } from '../pages/Organisations/Avance Plusieurs Mois/ParametrerCSPParPourcentage.ts';
 import { ParametrerCSPParMontanPage } from '../pages/Organisations/Avance Plusieurs Mois/ParametrerCSPParMontant.ts';
-
+import { AS_ParametreGenerauxParMontantPage } from '../pages/Organisations/Avance Salariale/AS_ParametreGenerauxParMontant.ts';
+import { AS_ParametreGenerauxParPourcentagePage } from '../pages/Organisations/Avance Salariale/AS_ParametreGenerauxParPourcentage.ts';
 export type TestFixtures = {
     basePage: BasePage;
     collaboratorPage: CollaboratorPage;
@@ -50,6 +51,8 @@ export type TestFixtures = {
     parametreGenerauxParMontantPage : ParametreGenerauxParMontantPage
     parametrerCSPParPourcentagePage : ParametrerCSPParPourcentagePage
     parametrerCSPParMontantPage : ParametrerCSPParMontanPage
+    as_parametreGenerauxParMontantPage : AS_ParametreGenerauxParMontantPage
+    as_parametreGenerauxParPourcentagePage : AS_ParametreGenerauxParPourcentagePage
     
   };
   const Datelimite = faker.number.int({ min: 1, max: 28 })
@@ -178,6 +181,17 @@ parametrerCSPParMontantPage : async ({ basePage }, use) => {
   const parametrerCSPParMontantPage = new ParametrerCSPParMontanPage(basePage.page);  
   await use(parametrerCSPParMontantPage);  
 },  
+
+as_parametreGenerauxParMontantPage : async ({ basePage }, use) => {  
+  const as_parametreGenerauxParMontantPage = new AS_ParametreGenerauxParMontantPage(basePage.page);  
+  await use(as_parametreGenerauxParMontantPage);  
+},  
+
+as_parametreGenerauxParPourcentagePage : async ({ basePage }, use) => {  
+  const as_parametreGenerauxParPourcentagePage = new AS_ParametreGenerauxParPourcentagePage(basePage.page);  
+  await use(as_parametreGenerauxParPourcentagePage);  
+},  
+
 
 });
 
